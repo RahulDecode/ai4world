@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed-variant": "#594400",
+                        "inverse-primary": "#6750a4",
+                        "tertiary-container": "#c9a74d",
+                        "secondary-fixed-dim": "#cdc0e9",
+                        "primary-fixed": "#e9ddff",
+                        "on-secondary-fixed": "#1f1635",
+                        "on-surface": "#e6e0e9",
+                        "inverse-surface": "#e6e0e9",
+                        "tertiary-fixed-dim": "#e7c365",
+                        "on-tertiary": "#3e2e00",
+                        "primary": "#cfbcff",
+                        "error-container": "#93000a",
+                        "secondary-fixed": "#e9ddff",
+                        "surface-container-high": "#2b292f",
+                        "inverse-on-surface": "#322f35",
+                        "on-primary-fixed": "#22005d",
+                        "primary-container": "#6750a4",
+                        "on-secondary": "#342b4b",
+                        "on-primary-container": "#e0d2ff",
+                        "outline": "#948e9c",
+                        "surface-container-lowest": "#0f0d13",
+                        "surface": "#141218",
+                        "surface-dim": "#141218",
+                        "secondary-container": "#4d4465",
+                        "on-error": "#690005",
+                        "on-tertiary-fixed": "#241a00",
+                        "outline-variant": "#494551",
+                        "on-tertiary-container": "#503d00",
+                        "error": "#ffb4ab",
+                        "on-primary": "#381e72",
+                        "surface-container-low": "#1d1b20",
+                        "surface-container-highest": "#36343a",
+                        "surface-tint": "#cfbcff",
+                        "surface-container": "#211f24",
+                        "on-background": "#e6e0e9",
+                        "primary-fixed-dim": "#cfbcff",
+                        "on-primary-fixed-variant": "#4f378a",
+                        "surface-variant": "#36343a",
+                        "secondary": "#cdc0e9",
+                        "on-error-container": "#ffdad6",
+                        "on-surface-variant": "#cbc4d2",
+                        "tertiary": "#e7c365",
+                        "on-secondary-fixed-variant": "#4b4263",
+                        "tertiary-fixed": "#ffdf93",
+                        "surface-bright": "#3b383e",
+                        "background": "#141218",
+                        "on-secondary-container": "#bfb2da"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "gutter": "24px",
+                        "margin-desktop": "64px",
+                        "margin-mobile": "20px",
+                        "container-max": "1440px"
+                    },
+                    "fontFamily": {
+                        "display-lg-mobile": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "display-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-lg-mobile": ["40px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "900"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0.01em", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                        "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "900"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        body {
+            background-color: #030a04;
+            background-image: radial-gradient(#f59e0b 0.5px, transparent 0.5px);
+            background-size: 24px 24px;
+            background-attachment: fixed;
+            color: #e6e0e9;
+        }
+        .entrance-fade-up {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: entrance 0.6s ease-out forwards;
+        }
+        @keyframes entrance {
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .stagger-1 { animation-delay: 0.2s; }
+        .stagger-2 { animation-delay: 0.3s; }
+        .stagger-3 { animation-delay: 0.4s; }
+        .stagger-4 { animation-delay: 0.5s; }
+
+        .pulse-gold {
+            animation: pulse-gold-border 2s infinite;
+        }
+        @keyframes pulse-gold-border {
+            0% { border-color: rgba(231, 195, 101, 0.2); }
+            50% { border-color: rgba(231, 195, 101, 0.8); }
+            100% { border-color: rgba(231, 195, 101, 0.2); }
+        }
+        .glass-surface {
+            background: rgba(7, 16, 9, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(13, 31, 16, 0.5);
+        }
+
+        /* Shimmer Effect for Course Cards */
+        @keyframes shimmer-sweep {
+            0% { transform: translateX(-150%) skewX(-20deg); }
+            50% { transform: translateX(150%) skewX(-20deg); }
+            100% { transform: translateX(150%) skewX(-20deg); }
+        }
+
+        .course-card {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .course-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(
+                to right,
+                transparent 0%,
+                rgba(231, 195, 101, 0.05) 30%,
+                rgba(255, 255, 255, 0.1) 50%,
+                rgba(231, 195, 101, 0.05) 70%,
+                transparent 100%
+            );
+            animation: shimmer-sweep 3.5s infinite linear;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .course-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(231, 195, 101, 0.6);
+            box-shadow: 0 0 20px rgba(231, 195, 101, 0.15);
+        }
+
+        .course-card:hover::after {
+            animation-duration: 1.5s;
+        }
+    </style>
+<style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 border-t-2 border-[#e7c365] bg-[#071009] border-b border-outline-variant/20 shadow-2xl">
+<div class="flex justify-between items-center h-20 px-margin-desktop max-w-container-max mx-auto">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-tertiary text-3xl" style="font-variation-settings: 'FILL' 1;">model_training</span>
+<span class="font-display-lg text-headline-md bg-gradient-to-r from-emerald-500 via-tertiary to-emerald-500 bg-clip-text text-transparent animate-pulse">AI4WORLD</span>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-tertiary font-bold border-b-2 border-tertiary font-body-md text-body-md" href="#">Dashboard</a>
+<a class="text-on-surface-variant hover:text-tertiary transition-colors font-body-md text-body-md hover:scale-105 transition-transform duration-300 ease-out" href="#">Research</a>
+<a class="text-on-surface-variant hover:text-tertiary transition-colors font-body-md text-body-md hover:scale-105 transition-transform duration-300 ease-out" href="#">Models</a>
+<span class="material-symbols-outlined text-tertiary cursor-pointer active:scale-95 transition-all duration-200">account_circle</span>
+</nav>
+</div>
+</header>
+<main class="pt-32 pb-margin-desktop px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto space-y-gutter">
+<!-- Welcome Heading -->
+<section class="entrance-fade-up">
+<h1 class="font-headline-lg text-headline-lg text-on-surface mb-2">Welcome back, Dr. Aris.</h1>
+<p class="text-on-surface-variant font-body-lg text-body-lg">System status: <span class="text-emerald-500">Agentic Synthesis Active</span></p>
+</section>
+<!-- Alert Banner -->
+<div class="entrance-fade-up stagger-1 glass-surface p-6 rounded-xl flex flex-col md:flex-row items-center justify-between border-2 pulse-gold gap-4">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-tertiary text-3xl">verified_user</span>
+<div>
+<h3 class="font-headline-md text-headline-md text-tertiary">Complete Profile</h3>
+<p class="text-on-surface-variant font-body-md text-body-md">Unlock specialized infrastructure resources by completing your institutional verification.</p>
+</div>
+</div>
+<button class="bg-gradient-to-r from-emerald-500 to-tertiary text-[#030a04] px-8 py-3 rounded-full font-bold hover:scale-105 transition-transform active:scale-95">Complete Now</button>
+</div>
+<!-- Stats Grid -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<!-- Stat 1 -->
+<div class="entrance-fade-up stagger-1 glass-surface p-6 rounded-xl hover:border-tertiary/30 transition-all group">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-emerald-500 text-4xl group-hover:scale-110 transition-transform duration-500">memory</span>
+<span class="text-label-caps font-label-caps text-on-surface-variant">FLOPs UTILIZED</span>
+</div>
+<div class="text-headline-lg font-headline-lg text-on-surface"><span class="counter" data-target="142">0</span>.8T</div>
+<div class="h-1 w-full bg-surface-container mt-4 rounded-full overflow-hidden">
+<div class="h-full bg-emerald-500 w-[72%]"></div>
+</div>
+</div>
+<!-- Stat 2 -->
+<div class="entrance-fade-up stagger-2 glass-surface p-6 rounded-xl hover:border-tertiary/30 transition-all group">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-tertiary text-4xl group-hover:scale-110 transition-transform duration-500">hub</span>
+<span class="text-label-caps font-label-caps text-on-surface-variant">ACTIVE NODES</span>
+</div>
+<div class="text-headline-lg font-headline-lg text-on-surface"><span class="counter" data-target="24">0</span>,912</div>
+<div class="h-1 w-full bg-surface-container mt-4 rounded-full overflow-hidden">
+<div class="h-full bg-tertiary w-[88%]"></div>
+</div>
+</div>
+<!-- Stat 3 -->
+<div class="entrance-fade-up stagger-3 glass-surface p-6 rounded-xl hover:border-tertiary/30 transition-all group">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-emerald-400 text-4xl group-hover:scale-110 transition-transform duration-500">psychology</span>
+<span class="text-label-caps font-label-caps text-on-surface-variant">LEARNING HRS</span>
+</div>
+<div class="text-headline-lg font-headline-lg text-on-surface"><span class="counter" data-target="12">0</span>,480</div>
+<div class="h-1 w-full bg-surface-container mt-4 rounded-full overflow-hidden">
+<div class="h-full bg-emerald-400 w-[45%]"></div>
+</div>
+</div>
+<!-- Stat 4 -->
+<div class="entrance-fade-up stagger-4 glass-surface p-6 rounded-xl hover:border-tertiary/30 transition-all group">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-tertiary text-4xl group-hover:scale-110 transition-transform duration-500">security</span>
+<span class="text-label-caps font-label-caps text-on-surface-variant">SECURE TASKS</span>
+</div>
+<div class="text-headline-lg font-headline-lg text-on-surface"><span class="counter" data-target="99">0</span>.9%</div>
+<div class="h-1 w-full bg-surface-container mt-4 rounded-full overflow-hidden">
+<div class="h-full bg-tertiary w-[99.9%]"></div>
+</div>
+</div>
+</div>
+<!-- Course / Training Section -->
+<section class="entrance-fade-up stagger-4 space-y-6">
+<div class="flex justify-between items-end">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Curated Training Modules</h2>
+<p class="text-on-surface-variant font-body-md text-body-md">Advanced specialization for agentic world modeling.</p>
+</div>
+<a class="text-tertiary font-label-caps text-label-caps hover:underline" href="#">VIEW ALL CATALOG</a>
+</div>
+<div class="space-y-4">
+<!-- Course Row 1 -->
+<div class="glass-surface p-6 rounded-xl flex items-center justify-between group cursor-pointer course-card">
+<div class="flex items-center gap-6 relative z-10">
+<div class="w-16 h-16 rounded-lg overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="A macro photography shot of an intricate digital neural network glowing in deep emerald and gold colors, representing high-frequency data transmission and artificial intelligence. The lighting is moody and cinematic, with soft bokeh highlighting the crystalline structures of the virtual circuit. This high-end visualization matches a dark-mode luxury aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0LgkygJC82K6riF6QWVjZwZ0jTk3Yo8DhJNmQkTAC1c3tTGECjw6xAOr_Xvfbn5FiYzAV8jFvBhAvm507WZp6mcSGl8z2UkC9RYiH2KI3THljzezzRD-LPU7aAl94QzevA-qTDhMex0c7KUYHF98iEsnImeNJE6FyxUB-FgrAZ4nL014mZXVHDVlh-fNzjgiHoU8EWbgUfGMAPvn3tgFsPZ6w5iDjIL_dZzp4CXPNOKi1kTZNlishc46CkWnpFRGYQmG0LS9pbZSE"/>
+</div>
+<div>
+<span class="text-[10px] font-label-caps tracking-widest text-emerald-500 mb-1 block">CORE ARCHITECTURE</span>
+<h4 class="font-headline-md text-headline-md text-on-surface group-hover:text-tertiary transition-colors">Neural World Synthesis 1.0</h4>
+<div class="flex items-center gap-4 mt-1">
+<span class="text-on-surface-variant text-sm flex items-center gap-1"><span class="material-symbols-outlined text-sm">schedule</span> 42 Hours</span>
+<span class="text-on-surface-variant text-sm flex items-center gap-1"><span class="material-symbols-outlined text-sm">trending_up</span> Advanced</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-8 relative z-10">
+<div class="hidden md:block text-right">
+<div class="text-on-surface font-headline-md text-headline-md">78%</div>
+<div class="text-on-surface-variant text-sm">Completed</div>
+</div>
+<span class="material-symbols-outlined text-tertiary transform transition-transform group-hover:translate-x-2 duration-300">chevron_right</span>
+</div>
+</div>
+<!-- Course Row 2 -->
+<div class="glass-surface p-6 rounded-xl flex items-center justify-between group cursor-pointer course-card">
+<div class="flex items-center gap-6 relative z-10">
+<div class="w-16 h-16 rounded-lg overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="Abstract fluid golden liquid swirling with emerald green light streaks in a dark, atmospheric space. The visual represents deep learning flux and living intelligence growth. High contrast, cinematic lighting, and a premium aesthetic with subtle depth and biological movement." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAf0bWEHF1pUB8_AOybBNbZADHTHJVFgK4QWv5nNvRQlmqCDhm9uLdw5FLx2R2CQ6BTbQKFpsluq5hWlu1vSBGWSh323g5KJjQpFRpemIOMjWYu5VpQIhPxOZ9JaFlMGDVB6ZWjZSjR5vxmnexEHrZMSDN_FnHT0onu3XPw7vwGTSV2X4SlDkzWzmT5ZhnSxoOcXN_GR5EPpLiat3yGW2PFPMflaVk_OoxF-SZ5Wt56DeqF0mn3-EwvNS0nsUsimqIA-cScWieHLHcC"/>
+</div>
+<div>
+<span class="text-[10px] font-label-caps tracking-widest text-tertiary mb-1 block">GOVERNANCE</span>
+<h4 class="font-headline-md text-headline-md text-on-surface group-hover:text-tertiary transition-colors">Autonomous Agent Ethics</h4>
+<div class="flex items-center gap-4 mt-1">
+<span class="text-on-surface-variant text-sm flex items-center gap-1"><span class="material-symbols-outlined text-sm">schedule</span> 12 Hours</span>
+<span class="text-on-surface-variant text-sm flex items-center gap-1"><span class="material-symbols-outlined text-sm">star</span> Specialization</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-8 relative z-10">
+<div class="hidden md:block text-right">
+<div class="text-on-surface font-headline-md text-headline-md">12%</div>
+<div class="text-on-surface-variant text-sm">Progress</div>
+</div>
+<span class="material-symbols-outlined text-tertiary transform transition-transform group-hover:translate-x-2 duration-300">chevron_right</span>
+</div>
+</div>
+<!-- Course Row 3 -->
+<div class="glass-surface p-6 rounded-xl flex items-center justify-between group cursor-pointer course-card">
+<div class="flex items-center gap-6 relative z-10">
+<div class="w-16 h-16 rounded-lg overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="Hyper-realistic digital rendering of a futuristic microprocessor with golden circuit traces and emerald-green glowing components. The composition is angled to provide a sense of scale and precision, illuminated by soft atmospheric lighting that highlights the textured metallic surfaces." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6LGhM09cdF9ttSzajXMN4aObKTrfRo9ZH7PFCtHVYEWW-bK1jifA3Osh2PnKOjkOGH1aFfnHDGWfrMFgEbGllpn9zToHLpKeQxmmJPJkVe7eLCMQ0u1ydM3uocbK2ZDMBjEjhJbwUH08cx6a5ZTD0rvstd-SIuLInzWwEwYLBBxWL1Ez0mFg8JlvIaSRQxoRAMXgSCwf3qAYBcO6oOUMPy_ebY8p4uTz9QIXdVVHXYD0RluUfaa2TgdkEVPBV9OKZ_UBHBNYoVLe2"/>
+</div>
+<div>
+<span class="text-[10px] font-label-caps tracking-widest text-emerald-500 mb-1 block">INFRASTRUCTURE</span>
+<h4 class="font-headline-md text-headline-md text-on-surface group-hover:text-tertiary transition-colors">Quantized Grid Optimization</h4>
+<div class="flex items-center gap-4 mt-1">
+<span class="text-on-surface-variant text-sm flex items-center gap-1"><span class="material-symbols-outlined text-sm">schedule</span> 28 Hours</span>
+<span class="text-on-surface-variant text-sm flex items-center gap-1"><span class="material-symbols-outlined text-sm">verified</span> Verified</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-8 relative z-10">
+<button class="bg-outline-variant/30 text-tertiary border border-tertiary/20 px-6 py-2 rounded-full font-label-caps text-label-caps hover:bg-tertiary hover:text-[#030a04] transition-all relative z-20">RESUME</button>
+<span class="material-symbols-outlined text-tertiary transform transition-transform group-hover:translate-x-2 duration-300">chevron_right</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-margin-desktop relative overflow-hidden bg-[#030a04] border-t border-outline-variant/10">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop max-w-container-max mx-auto gap-gutter">
+<div class="flex items-center gap-4">
+<span class="font-display-lg text-headline-md text-tertiary">AI4WORLD</span>
+<p class="text-on-surface-variant font-body-md text-body-md">© 2024 AI4WORLD. Living Intelligence Systems.</p>
+</div>
+<div class="flex gap-8">
+<a class="text-on-surface-variant hover:text-emerald-400 transition-colors duration-300 font-body-md text-body-md hover:translate-y-[-2px] transition-transform" href="#">Research</a>
+<a class="text-on-surface-variant hover:text-emerald-400 transition-colors duration-300 font-body-md text-body-md hover:translate-y-[-2px] transition-transform" href="#">Infrastructure</a>
+<a class="text-on-surface-variant hover:text-emerald-400 transition-colors duration-300 font-body-md text-body-md hover:translate-y-[-2px] transition-transform" href="#">Governance</a>
+<a class="text-on-surface-variant hover:text-emerald-400 transition-colors duration-300 font-body-md text-body-md hover:translate-y-[-2px] transition-transform" href="#">Security</a>
+</div>
+</div>
+</footer>
+<script>
+    // Number Counter Animation
+    document.addEventListener('DOMContentLoaded', () => {
+        const counters = document.querySelectorAll('.counter');
+        
+        const animateCounters = () => {
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-target'));
+                const duration = 2000;
+                const startTime = performance.now();
+
+                const update = (now) => {
+                    const elapsed = now - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+                    
+                    // Easing function: easeOutExpo
+                    const easedProgress = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+                    const value = Math.floor(easedProgress * target);
+                    
+                    counter.textContent = value;
+                    
+                    if (progress < 1) {
+                        requestAnimationFrame(update);
+                    }
+                };
+                
+                requestAnimationFrame(update);
+            });
+        };
+
+        // Trigger animation after sequence
+        setTimeout(animateCounters, 800);
+    });
+
+    // Atmospheric particle effect (vanilla js)
+    const canvas = document.createElement('canvas');
+    document.body.appendChild(canvas);
+    canvas.style.position = 'fixed';
+    canvas.style.top = '0';
+    canvas.style.left = '0';
+    canvas.style.width = '100%';
+    canvas.style.height = '100%';
+    canvas.style.zIndex = '-1';
+    canvas.style.pointerEvents = 'none';
+
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+
+    function resize() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+
+    class Particle {
+        constructor() {
+            this.x = Math.random() * canvas.width;
+            this.y = Math.random() * canvas.height;
+            this.size = Math.random() * 1.5;
+            this.speedX = Math.random() * 0.5 - 0.25;
+            this.speedY = Math.random() * 0.5 - 0.25;
+            this.opacity = Math.random() * 0.5;
+        }
+        update() {
+            this.x += this.speedX;
+            this.y += this.speedY;
+            if (this.x > canvas.width) this.x = 0;
+            if (this.x < 0) this.x = canvas.width;
+            if (this.y > canvas.height) this.y = 0;
+            if (this.y < 0) this.y = canvas.height;
+        }
+        draw() {
+            ctx.fillStyle = `rgba(16, 185, 129, ${this.opacity})`;
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fill();
+        }
+    }
+
+    function init() {
+        for (let i = 0; i < 50; i++) {
+            particles.push(new Particle());
+        }
+    }
+
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach(p => {
+            p.update();
+            p.draw();
+        });
+        requestAnimationFrame(animate);
+    }
+
+    window.addEventListener('resize', resize);
+    resize();
+    init();
+    animate();
+</script>
+</body></html>
